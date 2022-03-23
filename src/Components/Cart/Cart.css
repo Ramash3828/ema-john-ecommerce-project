@@ -1,0 +1,12 @@
+.cart-container h2 {
+    margin: 40px 0;
+}
+.item-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.item-info:last-child {
+    border-top: 2px solid #fff;
+    margin-top: 20px;
+}

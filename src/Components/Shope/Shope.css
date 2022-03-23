@@ -1,0 +1,20 @@
+.shope-container {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+.products-container {
+    padding: 100px 80px 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 45px;
+}
+.cart-container {
+    background: #ff99004d;
+    padding: 10px;
+    height: 300vh;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 50px;
+}
