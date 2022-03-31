@@ -1,7 +1,9 @@
 import React from "react";
 import "./ReviewItem.css";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const ReviewItem = (props) => {
+    const { product, onRemoveItem } = props;
     const { name, img, price, quantity, shipping } = props.product;
 
     return (
@@ -19,7 +21,12 @@ const ReviewItem = (props) => {
                     Quantity: <span>{quantity}</span>
                 </p>
             </div>
-            <button className="remove-btn">d</button>
+            <button
+                onClick={() => onRemoveItem(product)}
+                className="remove-btn"
+            >
+                <DeleteIcon />
+            </button>
         </div>
     );
 };

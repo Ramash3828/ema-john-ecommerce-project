@@ -1,10 +1,11 @@
 .shope-container {
     margin-top: 80px;
+    padding: 0 30px;
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
 .products-container {
-    padding: 100px 80px 50px;
+    padding: 45px 80px 50px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -13,8 +14,36 @@
 .cart-container {
     background: #ff99004d;
     padding: 10px;
-    height: 300vh;
+    height: 100vh;
     position: sticky;
     position: -webkit-sticky;
     top: 50px;
+}
+.delete-btn,
+.order-btn {
+    border: 2px solid #ffbb00;
+    width: 100%;
+    padding: 10px 15px;
+    background: #ffbb00;
+    font-size: 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.delete-btn {
+    background: #ff00228c;
+    border: 2px solid #ff00228c;
+}
+.delete-btn:hover,
+.order-btn:hover {
+    background: transparent;
 }

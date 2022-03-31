@@ -1,12 +1,34 @@
 .review-item {
-    margin: 0 auto;
+    margin: 45px auto;
     width: 70%;
     height: fit-content;
     padding: 20px;
+    background: #dde1e7;
     box-shadow: 2px 2px 3px rgb(226, 221, 221), -2px -2px 3px rgb(158, 154, 154);
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+.checkout-btn {
+    border: 1px solid #ffbb00;
+    width: 100%;
+    padding: 10px 15px;
+    background: #ffbb00;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.delete-btn {
+    background: #ff00228c;
+    border: 2px solid #ff00228c;
+}
+.delete-btn:hover,
+.order-btn:hover {
+    background: transparent;
 }
