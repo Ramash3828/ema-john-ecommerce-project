@@ -1,0 +1,12 @@
+.review-item {
+    margin: 0 auto;
+    width: 70%;
+    height: fit-content;
+    padding: 20px;
+    box-shadow: 2px 2px 3px rgb(226, 221, 221), -2px -2px 3px rgb(158, 154, 154);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
