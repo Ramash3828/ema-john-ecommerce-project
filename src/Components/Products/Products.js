@@ -1,4 +1,5 @@
 import "./Product.css";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const Products = (props) => {
     const { name, seller, price, img, ratings } = props.product;
@@ -14,7 +15,7 @@ const Products = (props) => {
                 onClick={() => props.addCartHandler(props.product)}
                 className="cart-btn"
             >
-                Add to cart
+                <AddShoppingCartIcon /> Add to cart
             </button>
         </div>
     );

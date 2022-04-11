@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
-import { removeFromDb } from "../../utilities/fakedb";
+import { deleteShoppingCart, removeFromDb } from "../../utilities/fakedb";
 
 import Cart from "../Cart/Cart";
 import ReviewItem from "../ReviewItem/ReviewItem";
@@ -32,7 +32,15 @@ const Orders = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <button className="delete-btn">Clear</button>
+                    <button
+                        onClick={() => {
+                            setCart([]);
+                            deleteShoppingCart();
+                        }}
+                        className="delete-btn"
+                    >
+                        Clear
+                    </button>
                     <Link to={"/"}>
                         <button className="checkout-btn">
                             Proceed Checkout

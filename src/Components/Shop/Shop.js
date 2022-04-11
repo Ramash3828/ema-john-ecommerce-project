@@ -43,7 +43,7 @@ const Shope = () => {
                 <Cart cart={cart}>
                     <button className="delete-btn"> Clear</button>
                     <Link to={"/orders"}>
-                        <button className="order-btn"> OrderReview</button>
+                        <button className="order-btn"> Order Review</button>
                     </Link>
                 </Cart>
             </div>
