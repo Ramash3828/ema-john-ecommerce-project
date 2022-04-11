@@ -11,7 +11,7 @@ const Login = () => {
     let navigate = useNavigate();
     const provider = new GoogleAuthProvider();
     if (user) {
-        navigate = "/shop";
+        navigate("/shop");
     }
     const handleSignIn = () => {
         signInWithPopup(auth, provider)
