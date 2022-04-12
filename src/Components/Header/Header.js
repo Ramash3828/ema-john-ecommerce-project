@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../images/Logo.svg";
+import dummyImg from "../../images/dummy.png";
 import { Link, NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase.init";
@@ -28,7 +29,7 @@ const Header = () => {
                 <div className="ms-3">
                     {user ? (
                         <img
-                            src={pic}
+                            src={pic || dummyImg}
                             alt=""
                             width={"40px"}
                             className="rounded-circle"

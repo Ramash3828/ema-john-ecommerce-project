@@ -31,6 +31,7 @@ a.active,
 .navbar a:hover {
     background: #131d24;
 }
+.navbar img,
 .user-img {
     background: transparent;
     width: 40px;
