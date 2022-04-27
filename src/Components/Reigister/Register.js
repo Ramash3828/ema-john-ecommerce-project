@@ -9,14 +9,18 @@ import {
     useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../Firebase.init";
+import {
+    sendEmailVerification,
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 const Register = () => {
     const [errorInfo, setErrorInfo] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [ConfirmPassword, setConfirmPassword] = useState("");
-    const [createUserWithEmailAndPassword] =
-        useCreateUserWithEmailAndPassword(auth);
+    // const [createUserWithEmailAndPassword, u] =
+    //     useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle] = useSignInWithGoogle(auth);
     const [user] = useAuthState(auth);
 
@@ -42,12 +46,26 @@ const Register = () => {
             setErrorInfo("Password did not match!");
             return;
         }
-        createUserWithEmailAndPassword(email, password);
+        // createUserWithEmailAndPassword(email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((res) => {
+                const cuser = res.user;
+                console.log(cuser);
+                sendEmailVerification(auth.currentUser).then(() => {
+                    // Email verification sent!
+                    // ...
+                    console.log("Email send");
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
     const googleSignIn = () => {
         signInWithGoogle();
     };
 
+    console.log(user);
     return (
         <div>
             <div className="w-50 mx-auto py-5 text-start ">

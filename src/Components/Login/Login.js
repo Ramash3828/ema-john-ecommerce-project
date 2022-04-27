@@ -9,6 +9,7 @@ import {
     useSignInWithEmailAndPassword,
     useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
     // const [errorInfo, setErrorInfo]=useState('')
@@ -40,6 +41,19 @@ const Login = () => {
         event.preventDefault();
         signInWithEmailAndPassword(email, password);
     };
+    const handleResetPassword = () => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                // Password reset email sent!
+                // ..
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+    };
+    console.log(user);
     return (
         <div className="w-50 mx-auto py-5 text-start ">
             <h2 className="text-primary text-center mb-3">LOGIN</h2>
@@ -70,6 +84,13 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+                <button
+                    onClick={handleResetPassword}
+                    className="w-100  btn btn-link mb-4 text-success text-start"
+                    type="submit"
+                >
+                    Reset Password
+                </button>
 
                 <Button className="w-100" variant="primary" type="submit">
                     Sign In

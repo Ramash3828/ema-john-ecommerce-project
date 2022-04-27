@@ -12,9 +12,9 @@ const Orders = () => {
     const [products] = useProducts();
     const [cart, setCart] = useCart(products);
     const onRemoveItem = (product) => {
-        const reviewItem = cart.filter((item) => item.id !== product.id);
+        const reviewItem = cart.filter((item) => item._id !== product._id);
         setCart(reviewItem);
-        removeFromDb(product.id);
+        removeFromDb(product._id);
     };
 
     return (
@@ -24,7 +24,7 @@ const Orders = () => {
                     ? "No Order Items Here!!!"
                     : cart.map((product) => (
                           <ReviewItem
-                              key={product.id}
+                              key={product._id}
                               onRemoveItem={onRemoveItem}
                               product={product}
                           ></ReviewItem>
@@ -41,9 +41,9 @@ const Orders = () => {
                     >
                         Clear
                     </button>
-                    <Link to={"/"}>
+                    <Link to={"/shipment"}>
                         <button className="checkout-btn">
-                            Proceed Checkout
+                            Shipment Checkout
                         </button>
                     </Link>
                 </Cart>

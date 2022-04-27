@@ -3,6 +3,7 @@ import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
 import { addToDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
+import Pagination from "../Pagination/Pagination";
 import Products from "../Products/Products";
 import "./Shop.css";
 
@@ -12,42 +13,46 @@ const Shope = () => {
 
     const addCartHandler = (product) => {
         let newCart = [];
-        let exists = cart.find((item) => item.id === product.id);
+        let exists = cart.find((item) => item._id === product._id);
         if (!exists) {
             product.quantity = 1;
             newCart = [...cart, product];
         } else {
-            const rest = cart.filter((item) => item.id !== product.id);
+            const rest = cart.filter((item) => item._id !== product._id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
         }
 
         setCart(newCart);
-        addToDb(product.id);
+        addToDb(product._id);
     };
 
     return (
-        <div className="shope-container">
-            <div className="products-container">
-                {products.map((product) => {
-                    return (
-                        <Products
-                            addCartHandler={addCartHandler}
-                            key={product.id}
-                            product={product}
-                        ></Products>
-                    );
-                })}
+        <>
+            <div className="shope-container">
+                <div className="products-container">
+                    {products.map((product) => {
+                        return (
+                            <Products
+                                addCartHandler={addCartHandler}
+                                key={product._id}
+                                product={product}
+                            ></Products>
+                        );
+                    })}
+                </div>
+
+                <div className="cart-container">
+                    <Cart cart={cart}>
+                        <button className="delete-btn"> Clear</button>
+                        <Link to={"/orders"}>
+                            <button className="order-btn"> Order Review</button>
+                        </Link>
+                    </Cart>
+                </div>
             </div>
-            <div className="cart-container">
-                <Cart cart={cart}>
-                    <button className="delete-btn"> Clear</button>
-                    <Link to={"/orders"}>
-                        <button className="order-btn"> Order Review</button>
-                    </Link>
-                </Cart>
-            </div>
-        </div>
+            <Pagination></Pagination>
+        </>
     );
 };
 
