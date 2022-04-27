@@ -10,7 +10,7 @@ import "./Orders.css";
 
 const Orders = () => {
     const [products] = useProducts();
-    const [cart, setCart] = useCart(products);
+    const [cart, setCart] = useCart();
     const onRemoveItem = (product) => {
         const reviewItem = cart.filter((item) => item._id !== product._id);
         setCart(reviewItem);

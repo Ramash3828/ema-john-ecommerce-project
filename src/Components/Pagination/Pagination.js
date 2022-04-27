@@ -6,9 +6,7 @@ const Pagination = () => {
     const [quantity, setQuantity] = useState(10);
 
     useEffect(() => {
-        fetch(
-            `http://localhost:5000/productCount?page=${page}&quantity=${quantity}`
-        )
+        fetch(`http://localhost:5000/productCount`)
             .then((res) => res.json())
             .then((data) => {
                 const count = data.count;
