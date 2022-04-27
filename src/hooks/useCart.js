@@ -8,7 +8,7 @@ const useCart = () => {
         const saveProduct = [];
         const keys = Object.keys(storedProduct);
 
-        fetch("http://localhost:5000/productById", {
+        fetch("https://quiet-reef-36489.herokuapp.com/productById", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(keys),

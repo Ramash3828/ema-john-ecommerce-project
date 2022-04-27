@@ -6,7 +6,7 @@ const Pagination = () => {
     const [quantity, setQuantity] = useState(10);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/productCount`)
+        fetch(`https://quiet-reef-36489.herokuapp.com/productCount`)
             .then((res) => res.json())
             .then((data) => {
                 const count = data.count;

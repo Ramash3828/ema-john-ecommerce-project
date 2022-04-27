@@ -17,13 +17,15 @@ const Shope = () => {
     const [cart, setCart] = useCart();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product?page=${page}&quantity=${quantity}`)
+        fetch(
+            `https://quiet-reef-36489.herokuapp.com/product?page=${page}&quantity=${quantity}`
+        )
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, [page, quantity]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/productCount`)
+        fetch(`https://quiet-reef-36489.herokuapp.com/productCount`)
             .then((res) => res.json())
             .then((data) => {
                 const count = data.count;
